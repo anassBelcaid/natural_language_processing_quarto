@@ -1,0 +1,184 @@
+[
+  {
+    "objectID": "overview.html",
+    "href": "overview.html",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "",
+    "text": "Course Structure\n\n\n\n\nDuration: 14 weeks total\nFormat: Student-led research presentations + practical sessions\nTarget: Fifth-year computer science students\nPrerequisites: Machine Learning, Python programming, Linear Algebra\n\n\n\n\n\nCode\ngantt\n    title Course Timeline\n    dateFormat  YYYY-MM-DD\n    section Topic Presentations\n    Week 1 - NLP Fundamentals     :active, w1, 2024-09-01, 7d\n    Week 2 - Language Models      :w2, after w1, 7d\n    Week 3 - Word Embeddings      :w3, after w2, 7d\n    Week 4 - Neural Networks      :w4, after w3, 7d\n    Week 5 - Transformers         :w5, after w4, 7d\n    Week 6 - Large LMs            :w6, after w5, 7d\n    Week 7 - Ethics & Evaluation  :w7, after w6, 7d\n    section Project Phase\n    Project Development           :p1, after w7, 21d\n    Final Presentations          :p2, after p1, 21d\n\n\n\n\n\n\ngantt\n    title Course Timeline\n    dateFormat  YYYY-MM-DD\n    section Topic Presentations\n    Week 1 - NLP Fundamentals     :active, w1, 2024-09-01, 7d\n    Week 2 - Language Models      :w2, after w1, 7d\n    Week 3 - Word Embeddings      :w3, after w2, 7d\n    Week 4 - Neural Networks      :w4, after w3, 7d\n    Week 5 - Transformers         :w5, after w4, 7d\n    Week 6 - Large LMs            :w6, after w5, 7d\n    Week 7 - Ethics & Evaluation  :w7, after w6, 7d\n    section Project Phase\n    Project Development           :p1, after w7, 21d\n    Final Presentations          :p2, after p1, 21d\n\n\n\n\nFigure 1: Course Timeline and Structure\n\n\n\n\n\nFirst 7 weeks: Student presentations (2 hours) + Hands-on practice (1 hour)\nLast 7 weeks: Project presentations and peer evaluation"
+  },
+  {
+    "objectID": "overview.html#sec-week1",
+    "href": "overview.html#sec-week1",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "2.1 Week 1: Fundamentals of Natural Language Processing",
+    "text": "2.1 Week 1: Fundamentals of Natural Language Processing\n\n\n\n\n\n\nFigure 2: NLP Pipeline Overview\n\n\n\n\n2.1.1 Topic Overview\n\nHistory and Evolution: From rule-based systems to modern neural approaches\nCore Challenges: Ambiguity, context, pragmatics, and world knowledge\nText Preprocessing: Tokenization, normalization, and cleaning techniques\nLinguistic Foundations: Morphology, syntax, semantics, and pragmatics\n\n\n\n\n\n\n\nKey Resources\n\n\n\n\nNLTK Book - Comprehensive introduction\nspaCy Documentation - Industrial-strength NLP\nStanford NLP Group - Research papers and resources\n\n\n\n\n\n2.1.2 Learning Objectives\n\nUnderstand the scope and applications of NLP across industries\nMaster the text preprocessing pipeline using industry-standard tools\nIdentify and analyze linguistic ambiguities and computational challenges\nImplement tokenization algorithms for different languages and domains\n\n\n\n2.1.3 Hands-on Session\n# Sample preprocessing pipeline\nimport nltk\nimport spacy\nfrom nltk.tokenize import word_tokenize\nfrom nltk.stem import PorterStemmer, WordNetLemmatizer\n\n# Text preprocessing demonstration\ntext = \"The researchers are researching research papers.\"\n# Expected output: tokens, stems, lemmas, POS tags\nActivities: - Building a custom tokenizer for social media text - Comparing stemming vs. lemmatization performance - Multilingual preprocessing challenges"
+  },
+  {
+    "objectID": "overview.html#sec-week2",
+    "href": "overview.html#sec-week2",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "2.2 Week 2: Statistical Language Models and N-grams",
+    "text": "2.2 Week 2: Statistical Language Models and N-grams\n\n2.2.1 Topic Overview\nStatistical language modeling forms the foundation of modern NLP. This week covers:\n\nProbability Theory in language: Chain rule, independence assumptions\nN-gram Models: Mathematical formulation and implementation details\n\nSmoothing Techniques: Handling zero probabilities and data sparsity\nEvaluation Metrics: Perplexity, cross-entropy, and information theory\n\n\n\nCode\ngraph TD\n    # A[Unigram Model&lt;br/&gt;P(w)] --&gt; B[Bigram Model&lt;br/&gt;P(w|w-1)]\n    # B --&gt; C[Trigram Model&lt;br/&gt;P(w|w-2,w-1)]\n    # C --&gt; D[N-gram Model&lt;br/&gt;P(w|w-n+1...w-1)]\n\n    A --&gt; E[Independence&lt;br/&gt;High bias, Low variance]\n    D --&gt; F[Context Dependence&lt;br/&gt;Low bias, High variance]\n\n\n\n\n\n\ngraph TD\n    # A[Unigram Model&lt;br/&gt;P(w)] --&gt; B[Bigram Model&lt;br/&gt;P(w|w-1)]\n    # B --&gt; C[Trigram Model&lt;br/&gt;P(w|w-2,w-1)]\n    # C --&gt; D[N-gram Model&lt;br/&gt;P(w|w-n+1...w-1)]\n\n    A --&gt; E[Independence&lt;br/&gt;High bias, Low variance]\n    D --&gt; F[Context Dependence&lt;br/&gt;Low bias, High variance]\n\n\n\n\nFigure 3: N-gram Model Hierarchy\n\n\n\n\n\n\n\n\n\n\n\nMathematical Foundation\n\n\n\nThe n-gram probability is calculated as: \\[P(w_i|w_{i-n+1}^{i-1}) = \\frac{C(w_{i-n+1}^{i})}{C(w_{i-n+1}^{i-1})}\\]\nWhere \\(C(·)\\) represents the count function in the training corpus.\n\n\n\n\n2.2.2 Learning Objectives\n\nBuild and evaluate n-gram language models from scratch\nUnderstand the bias-variance tradeoff in model complexity\nApply various smoothing techniques (Laplace, Good-Turing, Kneser-Ney)\nCalculate and interpret perplexity scores\n\n\n\n2.2.3 Hands-on Session\nImplementation Tasks: - N-gram model training on different corpus sizes - Perplexity calculation and analysis - Smoothing method comparison study - Text generation using trained models"
+  },
+  {
+    "objectID": "overview.html#sec-week3",
+    "href": "overview.html#sec-week3",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "2.3 Week 3: Word Representations and Embeddings",
+    "text": "2.3 Week 3: Word Representations and Embeddings\n\n\n\n\n\n\nFigure 4: Word Embedding Space\n\n\n\n\n2.3.1 Topic Overview\nThe transition from sparse to dense word representations revolutionized NLP:\n\nDistributional Semantics: “You shall know a word by the company it keeps”\nWord2Vec Algorithms: Skip-gram and Continuous Bag of Words (CBOW)\nGlobal Vectors (GloVe): Matrix factorization approach to embeddings\nFastText: Subword information and out-of-vocabulary handling\n\n\n\n\n\n\n\nWord2Vec Intuition\n\n\n\n\nSkip-gram: Predicts context words given target word\nCBOW: Predicts target word given context words\nBoth use hierarchical softmax or negative sampling for efficiency\n\n\n\n\n\n2.3.2 Key Resources\n\nWord2Vec Paper - Original Mikolov et al. work\nGloVe: Global Vectors - Stanford implementation\nFastText - Facebook’s subword embeddings\n\n\n\n2.3.3 Learning Objectives\n\nUnderstand limitations of one-hot encoding and sparse representations\nMaster the mathematics behind Word2Vec training objectives\nImplement embedding evaluation using intrinsic and extrinsic methods\nAnalyze semantic and syntactic relationships in embedding spaces\n\n\n\n2.3.4 Hands-on Session\n# Word2Vec training example\nfrom gensim.models import Word2Vec\nimport matplotlib.pyplot as plt\nfrom sklearn.manifold import TSNE\n\n# Training and visualization pipeline\nmodel = Word2Vec(sentences, vector_size=100, window=5, min_count=1)\n# Visualize embeddings with t-SNE\nPractical Exercises: - Training Word2Vec on domain-specific corpora - t-SNE visualization of embedding clusters - Word analogy tasks: “king - man + woman = ?” - Cross-lingual embedding alignment"
+  },
+  {
+    "objectID": "overview.html#sec-week4",
+    "href": "overview.html#sec-week4",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "2.4 Week 4: Neural Networks for NLP",
+    "text": "2.4 Week 4: Neural Networks for NLP\n\n2.4.1 Topic Overview\nThe neural revolution in NLP began with architectures designed for sequential data:\n\nRecurrent Neural Networks (RNNs): Processing variable-length sequences\nLong Short-Term Memory (LSTM): Solving the vanishing gradient problem\nGated Recurrent Units (GRUs): Simplified gating mechanisms\nBidirectional Networks: Capturing both forward and backward context\n\n\n\nCode\ngraph LR\n    A[Vanilla RNN&lt;br/&gt;Vanishing Gradients] --&gt; B[LSTM&lt;br/&gt;Forget Gate + Input Gate + Output Gate]\n    B --&gt; C[GRU&lt;br/&gt;Reset Gate + Update Gate]\n    C --&gt; D[BiLSTM&lt;br/&gt;Forward + Backward Processing]\n    \n    B --&gt; E[Applications:&lt;br/&gt;Language Modeling&lt;br/&gt;Sequence Classification&lt;br/&gt;Named Entity Recognition]\n\n\n\n\n\n\ngraph LR\n    A[Vanilla RNN&lt;br/&gt;Vanishing Gradients] --&gt; B[LSTM&lt;br/&gt;Forget Gate + Input Gate + Output Gate]\n    B --&gt; C[GRU&lt;br/&gt;Reset Gate + Update Gate]\n    C --&gt; D[BiLSTM&lt;br/&gt;Forward + Backward Processing]\n    \n    B --&gt; E[Applications:&lt;br/&gt;Language Modeling&lt;br/&gt;Sequence Classification&lt;br/&gt;Named Entity Recognition]\n\n\n\n\nFigure 5: RNN Architecture Evolution\n\n\n\n\n\n\n\n2.4.2 Learning Objectives\n\nDesign neural architectures for sequence processing tasks\nUnderstand gradient flow in recurrent connections\nImplement bidirectional processing for improved context modeling\nApply regularization techniques specific to sequential data\n\n\n\n2.4.3 Hands-on Session\nImplementation Focus: - RNN-based language model implementation - LSTM vs. GRU comparison on sequence classification - Gradient clipping and other training stabilization techniques - Attention visualization in sequence-to-sequence models"
+  },
+  {
+    "objectID": "overview.html#sec-week5",
+    "href": "overview.html#sec-week5",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "2.5 Week 5: Attention Mechanisms and Transformers",
+    "text": "2.5 Week 5: Attention Mechanisms and Transformers\n\n\n\n\n\n\nFigure 6: Transformer Architecture\n\n\n\n\n2.5.1 Topic Overview\nThe attention mechanism fundamentally changed how we process sequences:\n\nAttention Intuition: Differentiable dictionary lookup mechanism\nSelf-Attention: Query, Key, Value matrices and scaled dot-product\nMulti-Head Attention: Parallel attention computations with different representations\nTransformer Architecture: Complete replacement of recurrence with attention\n\n\n\n\n\n\n\nAttention Formula\n\n\n\nThe scaled dot-product attention is computed as: \\[\\text{Attention}(Q,K,V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right)V\\]\nWhere \\(Q\\), \\(K\\), \\(V\\) are query, key, and value matrices respectively.\n\n\n\n\n2.5.2 Key Resources\n\nAttention Is All You Need - Original Transformer paper\nThe Illustrated Transformer - Visual explanation\nTensor2Tensor - Reference implementation\n\n\n\n2.5.3 Learning Objectives\n\nGrasp the mathematical intuition behind attention mechanisms\nUnderstand positional encoding and why it’s necessary\nImplement multi-head attention from scratch\nAnalyze computational complexity advantages over RNNs\n\n\n\n2.5.4 Hands-on Session\n# Self-attention implementation\nimport torch\nimport torch.nn as nn\n\nclass MultiHeadAttention(nn.Module):\n    def __init__(self, d_model, num_heads):\n        super().__init__()\n        self.d_model = d_model\n        self.num_heads = num_heads\n        # Implementation details...\nPractical Tasks: - Implementing scaled dot-product attention - Building a mini-Transformer for sequence classification - Attention weight visualization and interpretation - Positional encoding analysis"
+  },
+  {
+    "objectID": "overview.html#sec-week6",
+    "href": "overview.html#sec-week6",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "2.6 Week 6: Large Language Models and Pre-training",
+    "text": "2.6 Week 6: Large Language Models and Pre-training\n\n2.6.1 Topic Overview\nThe era of large-scale pre-trained models has transformed NLP applications:\n\nPre-training Paradigms: From word prediction to masked language modeling\nBERT Family: Bidirectional encoder representations from transformers\nGPT Series: Autoregressive language model scaling\nTransfer Learning: Fine-tuning strategies for downstream tasks\n\n\n\nCode\ntimeline\n    title LLM Evolution Timeline\n    2018 : BERT (Google)\n         : GPT-1 (OpenAI)\n         : ELMo (AllenNLP)\n    2019 : GPT-2\n         : RoBERTa\n         : XLNet\n    2020 : GPT-3\n         : T5\n         : ELECTRA\n    2021 : PaLM\n         : Codex\n         : WebGPT\n    2022 : ChatGPT\n         : InstructGPT\n         : LaMDA\n    2023 : GPT-4\n         : Claude\n         : LLaMA\n\n\n\n\n\n\ntimeline\n    title LLM Evolution Timeline\n    2018 : BERT (Google)\n         : GPT-1 (OpenAI)\n         : ELMo (AllenNLP)\n    2019 : GPT-2\n         : RoBERTa\n         : XLNet\n    2020 : GPT-3\n         : T5\n         : ELECTRA\n    2021 : PaLM\n         : Codex\n         : WebGPT\n    2022 : ChatGPT\n         : InstructGPT\n         : LaMDA\n    2023 : GPT-4\n         : Claude\n         : LLaMA\n\n\n\n\nFigure 7: Evolution of Large Language Models\n\n\n\n\n\n\n\n\n\n\n\nPre-training Objectives\n\n\n\n\nMasked Language Modeling (MLM): Predict masked tokens (BERT)\nCausal Language Modeling (CLM): Predict next token (GPT)\nPrefix Language Modeling: Hybrid approach (GLM, PaLM)\n\n\n\n\n\n2.6.2 Learning Objectives\n\nUnderstand different pre-training strategies and their trade-offs\nMaster transfer learning concepts for NLP applications\nAnalyze scaling laws and emergent capabilities in large models\nImplement fine-tuning pipelines for specific tasks\n\n\n\n2.6.3 Hands-on Session\nPractical Applications: - Fine-tuning BERT for text classification using Hugging Face - Prompt engineering with GPT models - Model comparison across different architectures - Efficient fine-tuning with parameter-efficient methods (LoRA, adapters)"
+  },
+  {
+    "objectID": "overview.html#sec-week7",
+    "href": "overview.html#sec-week7",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "2.7 Week 7: Evaluation and Ethics in NLP",
+    "text": "2.7 Week 7: Evaluation and Ethics in NLP\n\n2.7.1 Topic Overview\nResponsible AI development requires comprehensive evaluation and ethical considerations:\n\nEvaluation Methodologies: Intrinsic vs. extrinsic evaluation frameworks\nBias Detection: Identifying and measuring algorithmic bias\nFairness Metrics: Demographic parity, equalized odds, individual fairness\nEnvironmental Impact: Carbon footprint of large model training\n\n\n\n\n\n\n\nFigure 8: Bias in NLP Systems\n\n\n\n\n\n\n\n\n\nEthical Considerations\n\n\n\n\nRepresentation Bias: Training data may not represent all populations\nMeasurement Bias: Evaluation metrics may favor certain groups\nEvaluation Bias: Test sets may contain demographic skews\nDeployment Bias: Real-world usage may differ from intended applications\n\n\n\n\n\n2.7.2 Key Resources\n\nAI Fairness 360 - IBM’s bias detection toolkit\nWhat We Can’t Measure, We Can’t Understand - Measurement in ML\nBlodgett et al., 2020 - Language models and bias\n\n\n\n2.7.3 Learning Objectives\n\nDesign comprehensive evaluation frameworks for NLP systems\nIdentify and quantify algorithmic bias using statistical methods\nImplement bias mitigation techniques at different pipeline stages\nConsider broader societal implications of NLP deployment\n\n\n\n2.7.4 Hands-on Session\n# Bias evaluation example\nfrom sklearn.metrics import confusion_matrix\nimport pandas as pd\n\n# Fairness metric calculation\ndef demographic_parity_difference(y_true, y_pred, sensitive_attr):\n    # Implementation for measuring bias across groups\n    pass\nEvaluation Tasks: - Word embedding bias testing (WEAT, SEAT) - Fairness evaluation across demographic groups - Carbon footprint estimation for model training - Adversarial testing for robustness"
+  },
+  {
+    "objectID": "overview.html#project-categories-and-detailed-descriptions",
+    "href": "overview.html#project-categories-and-detailed-descriptions",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "3.1 Project Categories and Detailed Descriptions",
+    "text": "3.1 Project Categories and Detailed Descriptions\n\n3.1.1 Category A: Text Classification and Analysis\n\n3.1.1.1 Project 1: Multi-label News Article Classification\nObjective: Build a robust multi-label classification system for news articles\n\nDataset: Reuters-21578 or BBC News Dataset\nTechniques: Compare traditional ML (TF-IDF + SVM) vs. modern approaches (BERT, RoBERTa)\nEvaluation: Multi-label F1, Hamming loss, subset accuracy\nExtensions: Hierarchical classification, active learning for label efficiency\n\n\n\n\n\n\n\nTechnical Challenges\n\n\n\n\nLabel Imbalance: Some categories have very few examples\nLabel Correlation: Economic news often overlaps with political news\nTemporal Drift: News topics evolve over time\n\n\n\n\n\n3.1.1.2 Project 2: Aspect-Based Sentiment Analysis\nObjective: Joint extraction of aspects and sentiment classification\n\nDataset: SemEval ABSA datasets, restaurant/hotel reviews\nTechniques: Joint models for aspect extraction and sentiment classification\nEvaluation: Aspect-level F1 scores, sentiment accuracy per aspect\nExtensions: Cross-domain adaptation, multilingual ABSA\n\n# Example aspect-sentiment pairs\ntext = \"The pizza was delicious but the service was terrible.\"\naspects = [\n    (\"pizza\", \"positive\"),\n    (\"service\", \"negative\")\n]\n\n\n3.1.1.3 Project 3: Fake News Detection with Explainability\nObjective: Build interpretable fake news detection systems\n\nDataset: FakeNewsNet, LIAR dataset\nTechniques: Feature engineering + deep learning + attention visualization\nEvaluation: Classification metrics + human evaluation of explanations\nExtensions: Multi-modal fake news detection (text + images)\n\n\n\n\n3.1.2 Category B: Information Extraction and Retrieval\n\n3.1.2.1 Project 4: Named Entity Recognition for Specialized Domains\nObjective: Develop domain-specific NER systems\n\nDataset: BioBERT datasets (biomedical) or financial NER\nTechniques: CRF vs. BERT-based sequence labeling\nEvaluation: Entity-level F1, error analysis by entity type\nExtensions: Few-shot NER, nested entity recognition\n\n\n\n3.1.2.2 Project 5: Open-Domain Question Answering System\nObjective: Build end-to-end question answering pipeline\n\nDataset: Natural Questions, MS MARCO\nArchitecture: Dense Passage Retrieval + Reading Comprehension\nEvaluation: Exact match, F1, answer coverage analysis\nExtensions: Multi-hop reasoning, conversational QA\n\n\n\nCode\ngraph TB\n    A[Question] --&gt; B[Query Encoder]\n    B --&gt; C[Passage Retrieval]\n    C --&gt; D[Passage Encoder]\n    D --&gt; E[Answer Extraction]\n    E --&gt; F[Answer]\n    \n    G[(Knowledge Base&lt;br/&gt;Wikipedia/Web)] --&gt; C\n    H[Retriever Model&lt;br/&gt;DPR/ColBERT] --&gt; C\n    I[Reader Model&lt;br/&gt;BERT/T5] --&gt; E\n\n\n\n\n\n\ngraph TB\n    A[Question] --&gt; B[Query Encoder]\n    B --&gt; C[Passage Retrieval]\n    C --&gt; D[Passage Encoder]\n    D --&gt; E[Answer Extraction]\n    E --&gt; F[Answer]\n    \n    G[(Knowledge Base&lt;br/&gt;Wikipedia/Web)] --&gt; C\n    H[Retriever Model&lt;br/&gt;DPR/ColBERT] --&gt; C\n    I[Reader Model&lt;br/&gt;BERT/T5] --&gt; E\n\n\n\n\nFigure 9: Question Answering System Architecture\n\n\n\n\n\n\n\n3.1.2.3 Project 6: Automatic Fact Verification\nObjective: Verify claims against evidence sources\n\nDataset: FEVER (Fact Extraction and VERification)\nPipeline: Evidence retrieval → Textual entailment → Verdict prediction\nEvaluation: FEVER score, evidence selection accuracy\nExtensions: Real-time fact-checking, claim generation\n\n\n\n\n3.1.3 Category C: Text Generation and Summarization\n\n3.1.3.1 Project 7: Neural Abstractive Text Summarization\nObjective: Generate coherent abstractive summaries\n\nDataset: CNN/DailyMail, XSum\nTechniques: Encoder-decoder with attention, copy mechanisms, coverage\nEvaluation: ROUGE scores, BERTScore, factual consistency\nExtensions: Multi-document summarization, controllable length\n\n\n\n3.1.3.2 Project 8: Dialogue System with Personality\nObjective: Develop persona-consistent chatbots\n\nDataset: PersonaChat, Blended Skill Talk\nTechniques: Persona-aware generation, retrieval-augmented responses\nEvaluation: Automatic metrics + human evaluation for consistency\nExtensions: Emotional intelligence, long-term memory\n\n\n\n3.1.3.3 Project 9: Creative Writing Assistant\nObjective: AI-powered creative content generation\n\nDataset: WritingPrompts, poetry corpora\nTechniques: Fine-tuned GPT models with controlled generation\nEvaluation: Creativity metrics, human preference studies, style analysis\nExtensions: Interactive story writing, genre transfer\n\n\n\n\n3.1.4 Category D: Multilingual and Low-Resource NLP\n\n3.1.4.1 Project 10: Cross-lingual Text Classification\nObjective: Zero-shot transfer across languages\n\nDataset: MLDoc, XNLI\nTechniques: Multilingual BERT, cross-lingual word embeddings\nEvaluation: Zero-shot transfer performance analysis\nExtensions: Few-shot adaptation, code-switching handling\n\n\n\n3.1.4.2 Project 11: Machine Translation for Low-Resource Languages\nObjective: Improve translation for under-resourced languages\n\nDataset: OPUS collections, WMT shared tasks\nTechniques: Transfer learning, back-translation, multilingual models\nEvaluation: BLEU, chrF, human evaluation, error analysis\nExtensions: Pivot translation, unsupervised MT\n\n\n\n\n3.1.5 Category E: Specialized Applications\n\n3.1.5.1 Project 12: Legal Document Analysis\nObjective: Automated legal document processing\n\nDataset: Legal case documents, contracts, legislative texts\nTechniques: Domain-adapted BERT, hierarchical document modeling\nEvaluation: Legal expert evaluation, domain-specific metrics\nExtensions: Legal precedent search, contract risk assessment\n\n\n\n3.1.5.2 Project 13: Medical Text Mining\nObjective: Clinical decision support through NLP\n\nDataset: MIMIC-III clinical notes, PubMed abstracts\nTechniques: BioBERT, clinical NER, relation extraction\nEvaluation: Medical accuracy, clinical utility assessment\nExtensions: Drug interaction prediction, diagnosis assistance\n\n\n\n3.1.5.3 Project 14: Mental Health Detection in Social Media\nObjective: Early detection of mental health indicators\n\nDataset: Reddit mental health datasets, Twitter emotion data\nTechniques: Multi-modal analysis, temporal pattern modeling\nEvaluation: Precision/recall for sensitive detection, ethical review\nExtensions: Crisis intervention systems, privacy-preserving methods\n\n\n\n\n\n\n\nEthical Considerations for Mental Health Projects\n\n\n\n\nPrivacy: Anonymization and consent requirements\nHarm Prevention: Avoiding false positives in crisis detection\nProfessional Oversight: Collaboration with mental health professionals\nBias Mitigation: Ensuring fair representation across demographics"
+  },
+  {
+    "objectID": "overview.html#sec-topic-assessment",
+    "href": "overview.html#sec-topic-assessment",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "4.1 Topic Presentations (Weeks 1-7)",
+    "text": "4.1 Topic Presentations (Weeks 1-7)\n\n\n\nTable 1: Assessment rubric for weekly topic presentations\n\n\n\n\n\n\n\n\n\n\nCriterion\nWeight\nDescription\n\n\n\n\nContent Quality\n40%\nResearch depth, technical accuracy, concept coverage\n\n\nPresentation Skills\n30%\nCommunication clarity, visual aids, audience engagement\n\n\nTechnical Implementation\n30%\nCode quality, demonstration effectiveness, innovation"
+  },
+  {
+    "objectID": "overview.html#sec-project-assessment",
+    "href": "overview.html#sec-project-assessment",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "4.2 Project Presentations (Weeks 8-14)",
+    "text": "4.2 Project Presentations (Weeks 8-14)\n\n\n\nTable 2: Assessment rubric for final project presentations\n\n\n\n\n\n\n\n\n\n\nCriterion\nWeight\nKey Evaluation Points\n\n\n\n\nTechnical Rigor\n35%\nMethodology selection, implementation quality, experimental design\n\n\nInnovation\n25%\nNovel approaches, creative problem-solving, original insights\n\n\nResults & Analysis\n25%\nComprehensive evaluation, error analysis, baseline comparison\n\n\nCommunication\n15%\nClear presentation, professional documentation, visualizations\n\n\n\n\n\n\n\n\n\n\n\n\nPeer Evaluation Component\n\n\n\nStudents will also evaluate their peers’ presentations using a structured rubric, contributing 10% to the final grade. This encourages active engagement and critical thinking."
+  },
+  {
+    "objectID": "overview.html#essential-python-libraries",
+    "href": "overview.html#essential-python-libraries",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "5.1 Essential Python Libraries",
+    "text": "5.1 Essential Python Libraries\n# Core NLP libraries\nimport nltk              # Natural Language Toolkit\nimport spacy             # Industrial-strength NLP\nimport transformers      # Hugging Face Transformers\nimport torch            # PyTorch for deep learning\nimport tensorflow as tf # TensorFlow alternative\n\n# Specialized libraries\nimport gensim           # Topic modeling and word embeddings\nimport scikit-learn     # Traditional ML algorithms\nimport datasets         # Hugging Face datasets\nimport evaluate         # Evaluation metrics"
+  },
+  {
+    "objectID": "overview.html#dataset-repositories",
+    "href": "overview.html#dataset-repositories",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "5.2 Dataset Repositories",
+    "text": "5.2 Dataset Repositories\n\nHugging Face Datasets: 10,000+ datasets for NLP\nPapers with Code: Benchmark datasets with leaderboards\nGoogle Dataset Search: Comprehensive dataset discovery\nAcademic Torrents: Large-scale research datasets"
+  },
+  {
+    "objectID": "overview.html#evaluation-tools-and-metrics",
+    "href": "overview.html#evaluation-tools-and-metrics",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "5.3 Evaluation Tools and Metrics",
+    "text": "5.3 Evaluation Tools and Metrics\n\nText Generation: BLEU, ROUGE, BERTScore, METEOR\nClassification: Precision, Recall, F1, AUC-ROC\nSequence Labeling: seqeval, entity-level F1\nBias and Fairness: Fairlearn, AI Fairness 360"
+  },
+  {
+    "objectID": "overview.html#key-milestones",
+    "href": "overview.html#key-milestones",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "6.1 Key Milestones",
+    "text": "6.1 Key Milestones\n\nWeek 4: Mid-Course CheckpointWeek 7: Proposal PresentationsWeek 10: Progress ReviewWeek 13-14: Final Presentations\n\n\n\nProject proposal submission (2-page document)\nLiterature review progress check\nDataset acquisition and preliminary analysis\nTechnical approach validation with instructor\n\n\n\n\n5-minute project pitches to class\nPeer feedback and suggestions\nFinal project scope confirmation\nTeam formation (if applicable)\n\n\n\n\nInterim results presentation\nTechnical challenges discussion\nMethodology adjustments if needed\nTimeline reassessment and planning\n\n\n\n\n15-minute presentations with Q&A\nLive demonstrations of working systems\nPeer evaluation and feedback\nIndustry guest evaluators (when possible)"
+  },
+  {
+    "objectID": "overview.html#collaboration-and-academic-integrity",
+    "href": "overview.html#collaboration-and-academic-integrity",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "7.1 Collaboration and Academic Integrity",
+    "text": "7.1 Collaboration and Academic Integrity\n\nIndividual Work: Weekly topic presentations must be completed individually\nTeam Projects: Final projects may be completed in teams of maximum 2 students\nCode Sharing: All implementations must be original with proper attribution\nPlagiarism Policy: Zero tolerance for academic dishonesty"
+  },
+  {
+    "objectID": "overview.html#technical-requirements",
+    "href": "overview.html#technical-requirements",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "7.2 Technical Requirements",
+    "text": "7.2 Technical Requirements\n\n\n\n\n\n\nSubmission Requirements\n\n\n\n\nVersion Control: All projects must use Git with clear commit history\nReproducibility: Include requirements.txt and detailed setup instructions\nDocumentation: README with project description, usage, and results\nPublic Repository: GitHub repository with appropriate license"
+  },
+  {
+    "objectID": "overview.html#support-and-office-hours",
+    "href": "overview.html#support-and-office-hours",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "7.3 Support and Office Hours",
+    "text": "7.3 Support and Office Hours\n\nWeekly Office Hours: Tuesdays 2-4 PM and Thursdays 10-12 PM\nOnline Forum: Course Slack workspace for peer discussion\nTechnical Support: TA sessions for implementation help\nGuest Speakers: Industry professionals and researchers (select weeks)"
+  },
+  {
+    "objectID": "overview.html#computing-resources",
+    "href": "overview.html#computing-resources",
+    "title": "Introduction to Natural Language Processing Course",
+    "section": "7.4 Computing Resources",
+    "text": "7.4 Computing Resources\nStudents have access to: - Local GPUs: NVIDIA RTX 4090 for model training - Cloud Credits: $100 Google Cloud Platform credits per student - Cluster Access: University HPC cluster for large-scale experiments - Pretrained Models: Access to Hugging Face Pro for latest models\n\nThis course syllabus is subject to updates based on student needs and emerging trends in NLP research. All changes will be communicated through the course management system."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CS 351: Introduction to Natural Language Processing",
+    "section": "",
+    "text": "This course provides a comprehensive introduction to Natural Language Processing (NLP), covering both theoretical foundations and practical applications. Students will learn to build systems that can understand, analyze, and generate human language using modern machine learning and deep learning techniques.\n\n\n\nOpen AI Whisper\n\n\n\nThrough a combination of student-led presentations, hands-on coding sessions, and independent research projects, you’ll master the techniques that power today’s most advanced AI applications - from search engines and chatbots to translation systems and content generators."
+  },
+  {
+    "objectID": "index.html#reference-books",
+    "href": "index.html#reference-books",
+    "title": "CS 351: Introduction to Natural Language Processing",
+    "section": "📚 Reference Books",
+    "text": "📚 Reference Books\n\n\n\n\n\nSpeech and Language Processing\n\n\nSpeech and Language Processing\nDaniel Jurafsky & James H. Martin\nThe definitive textbook for NLP fundamentals covering statistical and neural approaches.\n📖 Read Online\n\n\n\n\n\nNatural Language Processing with Python\n\n\nNatural Language Processing with Python\nSteven Bird, Ewan Klein & Edward Loper\nPractical guide to implementing NLP solutions using Python and NLTK.\n📖 Read Online"
+  },
+  {
+    "objectID": "index.html#prerequisites",
+    "href": "index.html#prerequisites",
+    "title": "CS 351: Introduction to Natural Language Processing",
+    "section": "🎓 Prerequisites",
+    "text": "🎓 Prerequisites\n\nStudents should have completed the following requirements before enrolling:\n\n\n💻 Programming Skills\n\nPython programming (intermediate level)\nExperience with NumPy and Pandas\nBasic command line usage\nGit version control\n\n\n\n🧮 Mathematical Foundation\n\nLinear algebra (vectors, matrices)\nStatistics and probability theory\nCalculus (basic optimization)\nDiscrete mathematics\n\n\n\n🤖 Machine Learning\n\nSupervised learning concepts\nNeural network basics\nModel evaluation and validation\nFeature engineering principles\n\n\n\n📚 Recommended Courses\n\nCS 229: Machine Learning\nCS 106B: Programming Abstractions\nMATH 51: Linear Algebra\nSTATS 116: Statistical Methods\n\n\n\n\n\n\n\n\n\n📝 Preparation Suggestion\n\n\n\nReview Python programming and linear algebra concepts before the course begins. Complete the prerequisite assessment to identify any knowledge gaps."
+  },
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "CS 351: Introduction to Natural Language Processing",
+    "section": "📅 Course Overview",
+    "text": "📅 Course Overview\n\n14-Week Structure\nThe course is organized into two main phases over 14 weeks:\n\n\n\n\n\n\nWeek 1: NLP Fundamentals\nTopic Presentation + Hands-on Session\n\nText preprocessing and tokenization\nRegular expressions and string manipulation\nIntroduction to NLTK and spaCy libraries\n\n\n\n\n\n\n\n\nWeek 2: Statistical Language Models\nTopic Presentation + Hands-on Session\n\nN-gram models and probability estimation\nSmoothing techniques for sparse data\nPerplexity evaluation and model comparison\n\n\n\n\n\n\n\n\nWeek 3: Word Representations\nTopic Presentation + Hands-on Session\n\nWord embeddings and vector semantics\nWord2Vec, GloVe, and FastText\nEmbedding evaluation and visualization\n\n\n\n\n\n\n\n\nWeek 4: Neural Networks for NLP\nTopic Presentation + Hands-on Session\n\nRNNs, LSTMs, and sequence modeling\nGradient flow and training challenges\nPyTorch implementation workshop\n\n\n\n\n\n\n\n\nWeek 5: Attention and Transformers\nTopic Presentation + Hands-on Session\n\nAttention mechanisms and self-attention\nTransformer architecture deep dive\nMulti-head attention implementation\n\n\n\n\n\n\n\n\nWeek 6: Large Language Models\nTopic Presentation + Hands-on Session\n\nPre-training objectives and fine-tuning\nBERT, GPT, and modern architectures\nTransfer learning strategies\n\n\n\n\n\n\n\n\nWeek 7: Ethics and Evaluation\nTopic Presentation + Hands-on Session - Bias detection and fairness metrics - Responsible AI development - Model evaluation best practices\n\n\n\n\n\n\n\nWeeks 8-14: Project Phase\nIndependent Research Projects - Project development and implementation - Weekly progress presentations - Peer review and feedback sessions - Final project demonstrations\n\n\n\n\n\n\n\n\n\n\ngantt\n    title Course Schedule\n    dateFormat  YYYY-MM-DD\n    \n    section Topic Presentations\n    Week 1-7 Presentations    :active, topics, 2024-09-01, 49d\n    \n    section Project Development\n    Project Proposals         :milestone, proposal, 2024-10-01, 0d\n    Development Phase         :projects, 2024-10-20, 35d\n    Final Presentations       :presentations, 2024-11-24, 14d\n    \n    section Key Deadlines\n    Midterm Check            :milestone, midterm, 2024-10-15, 0d\n    Progress Reviews         :milestone, progress, 2024-11-10, 0d\n    Final Demos             :milestone, final, 2024-12-08, 0d\n\n\n\n\nFigure 1: Course Timeline and Milestones"
+  },
+  {
+    "objectID": "index.html#grading",
+    "href": "index.html#grading",
+    "title": "CS 351: Introduction to Natural Language Processing",
+    "section": "📊 Grading",
+    "text": "📊 Grading\n\n\n\n\n\nComponent\n\n\nWeight\n\n\nDescription\n\n\nTimeline\n\n\n\n\n\n\nTopic Presentations\n\n\n25%\n\n\nResearch and present assigned weekly topics\n\n\nWeeks 1-7\n\n\n\n\nHands-on Assignments\n\n\n20%\n\n\nCoding exercises and practical implementations\n\n\nWeekly\n\n\n\n\nFinal Project\n\n\n35%\n\n\nIndependent research project with presentation\n\n\nWeeks 8-14\n\n\n\n\nPeer Evaluations\n\n\n10%\n\n\nConstructive feedback on classmates’ work\n\n\nOngoing\n\n\n\n\nProject Proposal\n\n\n5%\n\n\nDetailed proposal for final project\n\n\nWeek 4\n\n\n\n\nParticipation\n\n\n5%\n\n\nActive engagement and discussion\n\n\nThroughout\n\n\n\n\n\nGrade Scale\n\nA (90-100%): Exceptional work demonstrating mastery\nB (80-89%): Good understanding with solid implementation\nC (70-79%): Adequate grasp of core concepts\nD (60-69%): Minimal understanding, needs improvement\nF (&lt;60%): Insufficient demonstration of learning"
+  },
+  {
+    "objectID": "index.html#contact-information",
+    "href": "index.html#contact-information",
+    "title": "CS 351: Introduction to Natural Language Processing",
+    "section": "📧 Contact Information",
+    "text": "📧 Contact Information\n\nNeed Help or Have Questions?\nInstructor: Dr. A.Belcaid\nEmail: your.email@university.edu\nOffice Hours: Tuesdays & Thursdays, 2:00-4:00 PM\nOffice Location: Engineering Building, Room 401\n📧 Email Me"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
